@@ -3,5 +3,15 @@
 #输出: 6
 #解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
 
+
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
+        sum=0
+        res=nums[0]
+        for num in nums:
+            sum+=num
+            if sum>res:
+                res=sum
+            if sum<0:
+                sum=0
+        return res
