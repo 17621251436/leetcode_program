@@ -5,14 +5,18 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         left=0
-        right=len(nums)-1
         nums.sort()
         for i in range(len(nums)-2):
-            if nums[i]>0:
-                break
-            left=i+1
-            if nums[i]+nums[left]+nums[left+1]>0  or  nums[i]+nums[right]+nums[right-1]<0:
+            if i>0 and nums[i-1]==nums[i]:
                 continue
+            left=i+1
+            right= len(nums)-1
+            #剪枝
+            if nums[i]+nums[left]+nums[left+1]>0:
+                break
+            if nums[i]+nums[right]+nums[right+1]<0:
+                continue
+
             while left<right:
                 a=[]
                 if nums[i]+nums[left]+nums[right]==0:
