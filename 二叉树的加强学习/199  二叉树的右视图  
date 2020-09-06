@@ -1,0 +1,13 @@
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def rightSideView(self, root: TreeNode) -> List[int]:
+        res=[]
+        queue=collections.deque()
+        queue.append(root)
+        while queue:
+            
