@@ -1,0 +1,15 @@
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        set_nums=set(nums)
+        max_length=0
+        cur_num=0
+        cur_lenth=0
+        for num in set_nums:
+            if num-1 not in set_nums:
+                cur_num=num
+                cur_lenth=1
+            while cur_num+1 in set_nums:
+                cur_num+=1
+                cur_lenth+=1
+            max_length =max(cur_lenth,max_length)
+        return max_length

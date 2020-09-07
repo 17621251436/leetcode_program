@@ -1,0 +1,15 @@
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        dic = {}
+        for num in arr:
+            if num not in dic:
+                dic[num] = 1
+            else:
+                dic[num] += 1
+
+        res = []
+        res2 = []
+        for k, v in dic.items():
+            res.append(k)
+            res2.append(v)
+        return len(set(res)) == len(set(res2))

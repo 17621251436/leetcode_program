@@ -1,0 +1,20 @@
+class ListNode:
+    def __init__ (self,x):
+        self.val=x
+        self.next=None
+
+class Solution:
+    def detectCycle(self,head:ListNode) -> ListNode:
+    ## 2（F+a）=F+a+b+a --->F=b  快慢指针
+        fast=slow=head
+        while True:
+            if not (fast and fast.next): return
+            fast=fast.next.next
+            slow=slow.next
+            if slow==fast: break
+        fast=head
+        while fast!=slow:
+            fast=fast.next
+            slow=slow.next
+        return fast
+

@@ -13,5 +13,3 @@ class Solution:
             else:
                 continue
         return res
-
-

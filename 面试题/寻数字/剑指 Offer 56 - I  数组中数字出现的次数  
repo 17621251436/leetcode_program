@@ -1,0 +1,14 @@
+class Solution:
+    def singleNumbers(self, nums: List[int]) -> List[int]:
+        # nums.sort()
+        # res=[]
+        # dict_Nums={}
+        # for  i in range(len(nums)):
+        #     if nums[i] in dict_Nums:
+        #         dict_Nums[nums[i]]=False
+        #     else:
+        #         dict_Nums[nums[i]]=True
+        # for key in dict_Nums.keys():
+        #     if dict_Nums[key]:
+        #         res.append(key)
+        # return res

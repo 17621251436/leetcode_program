@@ -1,0 +1,14 @@
+class Solution:
+    def firstUniqChar(self, s: str) -> str:
+        if s=="":
+            return " "
+        dic={}
+        for num in s:
+            if num not in dic:
+                dic[num]=True
+            else:
+                dic[num]=False
+        for k,v in dic.items():
+            if v:
+                return k
+        return " "
