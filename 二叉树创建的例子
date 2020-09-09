@@ -1,0 +1,28 @@
+#coding=utf-8
+ 
+class TreeNode(object):
+    def __init__(self,data=None,left=None,right=None):
+        self.data = data
+        self.left = left
+        self.right = right
+ 
+    # 这一步是在每次调用某个结点时，自动调用.data的方法
+    def __str__(self):
+        return str(self.data)
+ 
+# 方法一
+A, B, C, D, E, F, G, H, I = [TreeNode(x) for x in 'ABCDEFGHI']
+A.left, A.right = B, C
+B.right = D
+C.left, C.right = E, F
+E.left = G
+F.left,F.right = H, I
+print C.right
+ 
+# 方法二
+A = TreeNode('A','B','C')
+B = TreeNode('B',None,'D')
+C = TreeNode('C','E','F')
+E = TreeNode('E','G',None)
+F = TreeNode('F','H','I')
+print C.right
