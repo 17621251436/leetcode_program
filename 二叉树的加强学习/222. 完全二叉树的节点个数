@@ -1,0 +1,24 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def countNodes(self, root: TreeNode) -> int:
+        return 1+self.countNodes(root.left)+self.countNodes(root.right) if root else 0
+        # if not root:
+        #     return 0
+        # res=0
+        # queue=collections.deque()
+        # queue.append(root)
+        # while queue:
+        #     for _ in range(len(queue)):
+        #         res+=1
+        #         tmp=queue.popleft()
+        #         if tmp.left:
+        #             queue.append(tmp.left)
+        #         if tmp.right:
+        #             queue.append(tmp.right)
+        # return res
