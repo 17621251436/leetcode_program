@@ -1,22 +1,40 @@
-## z字形打印树
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
-        if not root: return []
-        res,queue=[],collections.deque()
-
+        if not root:
+            return []
+        queue=collections.deque()
         queue.append(root)
-
+        level=0
+        res=[]
         while queue:
-            tmp = collections.deque()
+            tmp=collections.deque()
+            level+=1
             for _ in range(len(queue)):
-                que=queue.popleft()
-                if len(res)%2 ==1 :
-                   tmp.appendleft(que.val)
+                temp=queue.popleft()
+                if level%2:
+                    tmp.append(temp.val)
                 else:
-                   tmp.append(que.val)
-                if que.left:
-                   queue.append(que.left)
-                if que.right:
-                   queue.append(que.right)
+                    tmp.appendleft(temp.val)
+
+                if temp.left:
+                    queue.append(temp.left)
+                if temp.right:
+                    queue.append(temp.right)
             res.append(list(tmp))
         return res
+
+
+
+
+
+
+
+
+

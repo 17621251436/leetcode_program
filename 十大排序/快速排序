@@ -1,24 +1,19 @@
-def partition(nums,left,right):
-    key=left
-    while left<right:
-        while left <right and nums[left]<=nums[key]:
-            left+=1
-        while left<right  and nums[right]>=nums[key]:
-            right-=1
-        arr[left],arr[right]=arr[right],arr[left]
-    arr[left],arr[key] = arr[key],arr[left]
+def partition(arr, left, right):
+    key = left  # 划分参考数索引,默认为第一个数，可优化
+    while left < right:
+        while left < right and arr[right] >= arr[key]:
+            right -= 1
+        while left < right and arr[left] <= arr[key]:
+            left += 1
+        (arr[left], arr[right]) = (arr[right], arr[left])
+    (arr[left], arr[key]) = (arr[key], arr[left])
     return left
 
-def quicksort(arr, left, right):  
-        if left >= right:
-            return
-        # 从基准开始分区
-        mid = partition(arr, left, right)
-        # 递归调用
-        # print(arr)
-        quicksort(arr, left, mid - 1)
-        quicksort(arr, mid + 1, right)
 
-
-
-
+def quicksort(arr, left, right):  # 递归调用
+    if left >= right:
+        return
+    mid = partition(arr, left, right)
+    quicksort(arr, left, mid - 1)
+    quicksort(arr, mid+1, right)
+    return arr

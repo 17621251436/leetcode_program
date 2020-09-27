@@ -6,24 +6,28 @@
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        stack1 = []
-        stack2 = []
+        stack1=[]
+        stack2=[]
         while l1:
             stack1.append(l1.val)
-            l1 = l1.next
+            l1=l1.next
+
         while l2:
             stack2.append(l2.val)
-            l2 = l2.next
-        carry = 0
-        ans = None
-        while stack2 or stack1 or carry:
-            res = carry
-            res += stack1.pop() if stack1 else 0
-            res += stack2.pop() if stack2 else 0
-
-            root = ListNode(res % 10)
-            root.next = ans
-            ans = root
-            carry = res // 10
-        return ans
-
+            l2=l2.next
+        node=None
+        carry=0
+        res=0
+        while stack1 or stack2:
+            res=carry
+            res+=stack1.pop() if stack1 else 0
+            res+=stack2.pop() if stack2 else 0
+            root=ListNode(res%10)
+            root.next=node
+            node=root
+            carry=res//10
+        if carry:
+            root=ListNode(carry)
+            root.next=node
+            node=root
+        return node

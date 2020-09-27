@@ -1,0 +1,25 @@
+class Solution:
+    def partition(self, s: str) -> List[List[str]]:
+        n = len(s)
+        ans = []
+
+        def helper(tmp, j):
+            if j == n:
+                ans.append(tmp)
+            for i in range(j, n):
+                if s[j:i + 1] != s[j:i + 1][::-1]:
+                    continue
+                helper(tmp + [s[j:i + 1]], i + 1)
+
+        helper([], 0)
+        return ans
+
+        # if not s:
+        #     return [[]]
+        # if len(s) == 1:
+        #     return [[s]]
+        # ret = []
+        # for i in range(1, len(s)+1):
+        #     if s[:i][::-1] == s[:i]:
+        #         ret += [[s[:i]]+j for j in self.partition(s[i:])]
+        # return ret
