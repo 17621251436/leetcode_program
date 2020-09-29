@@ -10,6 +10,24 @@ class Solution:
         """
         if not head or not head.next:
             return head
+        stack=[]
+        while head:
+            stack.append(head.val)
+            head=head.next
+        
+        cur=head
+        while stack:
+            cur.next=stack.pop()
+            cur=cur.next
+            if cur:
+                cur.next=stack.pop(0)
+                cur=cur.next
+        
+        cur.next=None
+        
+
+        if not head or not head.next:
+            return head
         stack = []
         cur = head
         while cur:

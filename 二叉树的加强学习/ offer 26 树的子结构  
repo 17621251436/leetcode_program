@@ -6,6 +6,7 @@
 
 class Solution:
     def isSubStructure(self, A: TreeNode, B: TreeNode) -> bool:
+       
         if not A or not B:
             return False
         def recur(A,B):
@@ -16,3 +17,5 @@ class Solution:
             if  A and B and A.val==B.val:
                 return recur(A.left,B.left) and recur(A.right,B.right)
         return recur(A,B) or self.isSubStructure(A.left,B) or self.isSubStructure(A.right,B)
+
+            

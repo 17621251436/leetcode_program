@@ -6,37 +6,65 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         left=0
         nums.sort()
+        tmp=[]
         for i in range(len(nums)-2):
-            if i>0 and nums[i-1]==nums[i]:
+            if i>0 and nums[i]==nums[i-1]:
                 continue
             left=i+1
-            right= len(nums)-1
-            #剪枝
+            right=len(nums)-1
             if nums[i]+nums[left]+nums[left+1]>0:
                 break
-            if nums[i]+nums[right]+nums[right+1]<0:
+            if nums[i]+nums[right]+nums[right-1]<0:
                 continue
-
             while left<right:
-                a=[]
-                if nums[i]+nums[left]+nums[right]==0:
-                    a.append(nums[i])
-                    a.append(nums[left])
-                    a.append(nums[right])
-                    left=left+1
-                    right=right-1
-                    tmp.append(a)
+                
+                if nums[i]+nums[right]+nums[left]==0:
+                    tmp.append([nums[i],nums[left],nums[right]])
+                    left+=1
+                    right-=1
                     while nums[left]==nums[left-1] and left<right:
-
-                         left=left+1
-
-                    while nums[right] == nums[right + 1] and left<right:
-
-                         right=right-1
-
-                elif nums[i]+nums[left]+nums[right]>0:
-                    right=right-1
+                        left+=1
+                    while nums[right]==nums[right+1] and left<right:
+                        right-=1
+                elif nums[i]+nums[right]+nums[left]<0:
+                     left+=1
                 else:
-                    left=left+1
-
+                     right-=1
         return tmp
+
+        # left=0
+        # nums.sort()
+        # for i in range(len(nums)-2):
+        #     if i>0 and nums[i-1]==nums[i]:
+        #         continue
+        #     left=i+1
+        #     right= len(nums)-1
+        #     #剪枝
+        #     if nums[i]+nums[left]+nums[left+1]>0:
+        #         break
+        #     if nums[i]+nums[right]+nums[right+1]<0:
+        #         continue
+
+        #     while left<right:
+        #         a=[]
+        #         if nums[i]+nums[left]+nums[right]==0:
+        #             a.append(nums[i])
+        #             a.append(nums[left])
+        #             a.append(nums[right])
+        #             left=left+1
+        #             right=right-1
+        #             tmp.append(a)
+        #             while nums[left]==nums[left-1] and left<right:
+
+        #                  left=left+1
+
+        #             while nums[right] == nums[right + 1] and left<right:
+
+        #                  right=right-1
+
+        #         elif nums[i]+nums[left]+nums[right]>0:
+        #             right=right-1
+        #         else:
+        #             left=left+1
+
+        # return tmp

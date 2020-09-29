@@ -10,21 +10,42 @@
 #         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        cur=res=ListNode(None)
         tmp=[]
-        for i in range(len(lists)):
-            p=lists[i]
-            while p:
-                tmp.append(p.val)
-                p=p.next
+        for num in lists:
+            while num:
+                tmp.append(num.val)
+                num=num.next
         tmp.sort()
+        for num in tmp:
+            res.next=ListNode(num)
+            res=res.next
+        return cur.next
 
-        res=ListNode(None)
-        node=res
-        for i in range(len(tmp)):
-            Node=ListNode(tmp[i])
-            node.next=Node
-            node=node.next
-        return res.next
+        # tmp=[]
+        # for i in range(len(lists)):
+        #     p=lists[i]
+        #     while p:
+        #         tmp.append(p.val)
+        #         p=p.next
+        # tmp.sort()
+
+        # res=ListNode(None)
+        # node=res
+        # for i in range(len(tmp)):
+        #     Node=ListNode(tmp[i])
+        #     node.next=Node
+        #     node=node.next
+        # return res.next
+
+
+        
+
+
+
+
+
+
 
 
 

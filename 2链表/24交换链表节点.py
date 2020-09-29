@@ -6,25 +6,32 @@
 
 class Solution:
     def swapPairs(self, head: ListNode) -> ListNode:
-        nums=[]
-        p=head
-        while p:
-            nums.append(p.val)
-            p=p.next
-        i=0
-        if len(nums)%2==0:
-            while i<len(nums)-1:
-                nums[i],nums[i+1]=nums[i+1],nums[i]
-                i=i+2
-        else:
-            while i<len(nums)-2:
-                nums[i],nums[i+1]=nums[i+1],nums[i]
-                i=i+2
+        cur=ListNode(None)
+        cur.next=head
+        pre=cur
+        
+        while head and head.next:
+              first=head
+              second=head.next
+              pre.next=second
+              first.next=second.next
+              second.next=first
+              pre=first
+              head=first.next
 
-        res=ListNode(None)
-        node=res
-        for num in nums:
-            Node=ListNode(num)
-            node.next=Node
-            node =node.next
-        return res.next
+        return cur.next
+        
+
+        dummy = ListNode(-1)
+        dummy.next = head
+        pre = dummy
+        while head and head.next:   #空节点或者单节点退出
+            first = head
+            second = head.next
+            pre.next = second       #交换两节点
+            first.next = second.next
+            second.next = first
+
+            pre = first             #继续遍历后续节点
+            head = first.next
+        return dummy.next

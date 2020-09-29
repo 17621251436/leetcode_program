@@ -7,6 +7,23 @@
 class Solution:
     def detectCycle(self, head: ListNode) -> ListNode:
         ##双指针
+        
+        fast=slow=head
+        while True:
+            if not (fast and fast.next): return 
+            fast=fast.next.next
+            slow=slow.next
+            if fast==slow:
+                break
+
+        fast=head
+        while fast!=slow:
+            fast=fast.next
+            slow=slow.next
+        return fast
+
+
+
         fast, slow = head, head
         while True:
             if not (fast and fast.next): return

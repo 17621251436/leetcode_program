@@ -6,9 +6,9 @@ class TreeNode:
 
 class Solution:
     def kthLargest(self, root: TreeNode, k: int) -> int:
-        if not root:
+        if not  root:   
             return 0
-
+          
         def dfs(root):
             if not root:
                 return 0
@@ -22,3 +22,9 @@ class Solution:
         self.k=k
         dfs(root)
         return self.res
+
+        
+
+
+        
+            
