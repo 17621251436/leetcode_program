@@ -1,16 +1,19 @@
-class Solution:
-    def maxArea(self, height: List[int]) -> int:
-      ##暴力算法
-        res=0
-        i=0
-        j=len(height)-1
-        while i<j:
-            tmp=(j-i)*min(height[i],height[j])
-            if tmp>res:
-                res=tmp
-            if height[i]<height[j]:
-                i=i+1
-            else:
-                j=j-1
+# 边界条件
+# if not height: return 0
+# n = len(height)
+#
+# left, right = 0, n - 1  # 分别位于输入数组的两端
+# maxleft, maxright = height[0], height[n - 1]
+# ans = 0
+#
+# while left <= right:
+#     maxleft = max(height[left], maxleft)
+#     maxright = max(height[right], maxright)
+#     if maxleft < maxright:
+#         ans += maxleft - height[left]
+#         left += 1
+#     else:
+#         ans += maxright - height[right]
+#         right -= 1
 
-        return res
+return ans

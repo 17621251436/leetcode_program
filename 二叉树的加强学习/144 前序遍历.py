@@ -8,7 +8,8 @@ class Solution:
         ##非递归
         if not root:
             return []
-        cur,stack,res=root,[],[]
+        cur,stack,res=[]
+        cur=root
         while cur or stack:
             while cur:
                 res.append(cur.val)
@@ -17,6 +18,10 @@ class Solution:
             tmp=stack.pop()
             cur=tmp.right
         return res
+
+
+
+
         ##递归
 
         if not root:

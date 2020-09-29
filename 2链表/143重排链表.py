@@ -8,6 +8,8 @@ class Solution:
         """
         Do not return anything, modify head in-place instead.
         """
+
+
         if not head or not head.next:
             return head
         stack=[]
@@ -24,21 +26,19 @@ class Solution:
                 cur=cur.next
         
         cur.next=None
-        
+
 
         if not head or not head.next:
             return head
-        stack = []
-        cur = head
-        while cur:
-            stack.append(cur)
-            cur = cur.next
-        cur = stack.pop(0)
+        stack=[]
+        while head:
+            stack.append(head.val)
+            head=head.next
+        cur=head
         while stack:
-            cur.next = stack.pop()
-            cur = cur.next
-            if stack:
-                cur.next = stack.pop(0)
-                cur = cur.next
-        cur.next = None
-
+            cur.next=stack.pop()
+            cur=cur.next
+            if cur:
+                cur.next=stack.pop(0)
+                cur=cur.next
+        cur.next=None
