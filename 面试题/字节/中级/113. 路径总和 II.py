@@ -9,20 +9,37 @@ class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
         if not root:
             return []
-        res = []
+        res=[]
+        path=[]
+        def dfs(root,tar):
+            if not root:
+                return res
+            path.append(root.val)
+            tar-=root.val
+            if not root.left and not root.right and tar==0:
+                res.append(list(path))
 
-        def dfs(root, stack, sum_):
-            sum_ += root.val
-            if not root.left and not root.right:
-                if sum == sum_:
-                    res.append(stack[:] + [root.val])
-            elif not root.left:
-                dfs(root.right, stack + [root.val], sum_)
-            elif not root.right:
-                dfs(root.left, stack + [root.val], sum_)
-            else:
-                dfs(root.left, stack + [root.val], sum_)
-                dfs(root.right, stack + [root.val], sum_)
+            dfs(root.left,tar)
 
-        dfs(root, [], 0)
+            dfs(root.right,tar)
+            path.pop()
+
+        dfs(root, sum)
         return res
+
+    # if not root:
+    #     return []
+    # res = []
+    #
+    # def dfs(root, stack, sum_):
+    #     sum_ += root.val
+    #     if not root.left and not root.right:
+    #         if sum == sum_:
+    #             res.append(stack[:] + [root.val])
+    #     elif not root.left:
+    #         dfs(root.right, stack + [root.val], sum_)
+    #     elif not root.right:
+    #         dfs(root.left, stack + [root.val], sum_)
+    #     else:
+    #         dfs(root.left, stack + [root.val], sum_)
+    #         dfs(root.right, stack + [root.val], sum_)

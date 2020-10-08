@@ -11,14 +11,14 @@ class Solution:
         stack=[]
         cur=root
         res=float("-inf")
-        while cur or stack:
+        while stack or cur:
             while cur:
                 stack.append(cur)
                 cur=cur.left
-
-            tmp =stack.pop()
-            if  tmp.val<=res:
+            tmp=stack.pop()
+            if tmp.val<=res:
                 return False
-            cur=tmp.right
             res=tmp.val
+            cur=tmp.right
+
         return True

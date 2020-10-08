@@ -8,12 +8,11 @@ class Solution:
         ##非递归
         if not root:
             return []
-        cur,stack,res=[]
-        cur=root
+        cur,stack,res=root,[],[]
         while cur or stack:
             while cur:
-                res.append(cur.val)
                 stack.append(cur)
+                res.append(cur.val)
                 cur=cur.left
             tmp=stack.pop()
             cur=tmp.right
@@ -22,17 +21,32 @@ class Solution:
 
 
 
-        ##递归
-
-        if not root:
-            return []
-        res=[]
-        def dfs(root):
-            if not root:
-                return 
-            res.append(root.val)
-            dfs(root.left)
-            dfs(root.right)
-        dfs(root)
-        return res
-            
+        # if not root:
+        #     return []
+        # cur,stack,res=[]
+        # cur=root
+        # while cur or stack:
+        #     while cur:
+        #         res.append(cur.val)
+        #         stack.append(cur)
+        #         cur=cur.left
+        #     tmp=stack.pop()
+        #     cur=tmp.right
+        # return res
+        #
+        #
+        #
+        #
+        # ##递归
+        #
+        # if not root:
+        #     return []
+        # res=[]
+        # def dfs(root):
+        #     if not root:
+        #         return
+        #     res.append(root.val)
+        #     dfs(root.left)
+        #     dfs(root.right)
+        # dfs(root)
+        # return res

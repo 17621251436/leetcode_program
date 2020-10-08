@@ -2,17 +2,20 @@ class Solution:
     def permutation(self, s: str) -> List[str]:
         if not s:
             return []
-        s = list(sorted(s))
-        res = []
-
-        def dfs(s, tmp):
+        s=list(sorted(s))
+        res=[]
+        def dfs(s,path):
             if not s:
-                res.append(''.join(tmp))
-
+                res.append(''.join(path))
             for i in range(len(s)):
-                if i > 0 and s[i] == s[i - 1]:
+                if i>0 and s[i]==s[i-1]:
                     continue
-                dfs(s[:i] + s[i + 1:], tmp + [s[i]])
+                dfs(s[:i]+s[i+1:],path+[s[i]])
+        dfs(s,[])
 
-        dfs(s, [])
-        return res
+        return   res
+
+
+
+
+

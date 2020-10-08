@@ -2,7 +2,6 @@ class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         if not nums:
             return []
-        res=[]
         def dfs(nums,path):
             if not nums:
                 res.append(path)
@@ -10,3 +9,5 @@ class Solution:
                 dfs(nums[:i]+nums[i+1:],path+[nums[i]])
         dfs(nums,[])
         return res
+
+
