@@ -7,23 +7,41 @@
 
 class Solution:
     def binaryTreePaths(self, root: TreeNode) -> List[str]:
-        res = []
 
-        def back(root, path):
-            if not root:
-                return []
-            path.append(root.val)
-            if not root.left and not root.right:
-                res.append(path[:])
 
-            choices = []
-            if root.left:
-                choices.append(root.left)
-            if root.right:
-                choices.append(root.right)
-            for choice in choices:
-                back(choice, path)
-                path.pop()
 
-        back(root, [])
-        return ["->".join(list(map(str, i))) for i in res]
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # res = []
+    #
+    # def back(root, path):
+    #     if not root:
+    #         return []
+    #     path.append(root.val)
+    #     if not root.left and not root.right:
+    #         res.append(path[:])
+    #
+    #     choices = []
+    #     if root.left:
+    #         choices.append(root.left)
+    #     if root.right:
+    #         choices.append(root.right)
+    #     for choice in choices:
+    #         back(choice, path)
+    #         path.pop()
+    #
+    # back(root, [])
+    # return ["->".join(list(map(str, i))) for i in res]
+    #
+    #

@@ -1,7 +1,6 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         dic={}
-
         for s in strs:
             keys=''.join(sorted(s))
             if keys not in dic:
@@ -10,3 +9,29 @@ class Solution:
                 dic[keys].append(s)
         return list(dic.values())
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # dic={}
+        #
+        # for s in strs:
+        #     keys=''.join(sorted(s))
+        #     if keys not in dic:
+        #         dic[keys]=[s]
+        #     else:
+        #         dic[keys].append(s)
+        # return list(dic.values())
+        #

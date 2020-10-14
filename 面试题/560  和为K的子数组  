@@ -18,3 +18,18 @@ class Solution:
 
 
 
+=======
+
+
+
+        ##滑动窗口
+        pre = 0
+        count = 0
+        dic = {0:1}
+        for i in nums:
+            pre += i
+            if (pre-k) in dic:
+                count += dic[pre-k]
+            dic[pre] = dic.get(pre,0) + 1
+        return count
+>>>>>>> de5695814988739a0a770708869593bbed715cdc

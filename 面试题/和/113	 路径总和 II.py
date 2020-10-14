@@ -7,43 +7,19 @@
 
 class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
-        path=[]
-        res=[]
         if not root:
             return []
-        def dfs(root,tar)
+        res=[]
+        path=[]
+        def dfs(root,tar):
             if not root:
                 return []
             path.append(root.val)
             tar-=root.val
-            if tar==0 and not root.left and not root.right:
+            if not root.left and not root.right and tar==0:
                 res.append(path)
             dfs(root.left,tar)
             dfs(root.right,tar)
             path.pop()
         dfs(root,sum)
         return res
-
-
-
-
-
-
-
-
-
-
-        # path=[]
-        # res=[]
-        # if not root:
-        #     return []
-        # def pathRoad(root,tar):
-        #     path.append(root.val)
-        #     tar-=root.val
-        #     if tar==0 and not root.left and not root.right:
-        #         res.append(list(path))
-        #     pathRoad(root.left,tar)
-        #     pathRoad(root.right,tar)
-        #     path.pop()
-        # pathRoad(root,sum)
-        # return res

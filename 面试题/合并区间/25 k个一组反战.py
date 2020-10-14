@@ -6,32 +6,35 @@
 
 class Solution:
     def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
-        def reverse(head, tail):
-            prev = tail.next
-            p = head
-            while prev != tail:
-                tmp = p.next
-                p.next = prev
-                prev = p
-                p = tmp
-            return tail, head
-
-        hair = ListNode(None)
-        hair.next = head
-        pre = hair
+        def reverse(head,tail):
+            prev=tail.next
+            p=head
+            while prev!=tail:
+                nex=tail.next
+                p.next=prev
+                prev=p
+                p=nex
+            return tail,head
+        hair=ListNode(None)
+        hair.next=head
+        pre=hair
         while head:
-            tail = pre
+            tail=pre
             for i in range(k):
-                tail = tail.next
+                tail=tail.next
                 if not tail:
                     return hair.next
-            nex = tail.next
-            head, tail = reverse(head, tail)
-            pre.next = head
-            tail.next = nex
-            head = tail.next
-            pre = tail
+            nex=tail.next
+            head,tail=reverse(head,tail)
+            pre.next=head
+            tail.next=nex
+            pre=tail
+            head=tail.next
         return hair.next
+
+
+
+
 
         # def reverse( head, tail):
         #     prev = tail.next
@@ -41,7 +44,7 @@ class Solution:
         #         p.next = prev
         #         prev = p
         #         p = nex
-        #     return tail, head
+        #     return tail, head,
 
         # hair = ListNode(0)
         # hair.next = head
