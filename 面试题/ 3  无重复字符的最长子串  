@@ -6,8 +6,8 @@ class Solution:
             while i in stack:
                 stack.pop(0)
             stack.append(i)
-            max_depth=len(max_depth,len(stack))
-        retur  max_depth
+            max_depth=max(max_depth,len(stack))
+        return max_depth
 
 
 

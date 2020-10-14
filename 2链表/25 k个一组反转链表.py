@@ -15,24 +15,67 @@ class Solution:
                 pre=p
                 p=tmp
             return tail,head
-        
-        hair=ListNode(None)
-        hair.next=head
-        pre=hair
+
+        hair = ListNode(None)
+        hair.next = head
+        pre = hair
         while head:
             tail=pre
-            for i in range(k):
+            for _ in range(k):
                 tail=tail.next
-                if not  tail:
+                if not tail:
                     return hair.next
             tmp=tail.next
             head,tail=reverse(head,tail)
-
-            pre.next =head
+            pre.next=head
             tail.next=tmp
             pre=tail
-            head=tail.next
+            head=pre.next
         return hair.next
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #     def reverse(head,tail):
+    #         pre=tail.next
+    #         p=head
+    #         while pre!=tail:
+    #             tmp=p.next
+    #             p.next=pre
+    #             pre=p
+    #             p=tmp
+    #         return tail,head
+    #
+    #     hair=ListNode(None)
+    #     hair.next=head
+    #     pre=hair
+    #     while head:
+    #         tail=pre
+    #         for i in range(k):
+    #             tail=tail.next
+    #             if not  tail:
+    #                 return hair.next
+    #         tmp=tail.next
+    #         head,tail=reverse(head,tail)
+    #
+    #         pre.next =head
+    #         tail.next=tmp
+    #         pre=tail
+    #         head=tail.next
+    #     return hair.next
+    #
+    #
+    #

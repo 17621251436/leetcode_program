@@ -9,7 +9,7 @@ class Solution:
         for i in range(rows):
             for j in range(cols):
                 if i==0 and j==0:
-                    dp[i][j]=grid[0][0]
+                    d67p[i][j]=grid[0][0]
                 elif i==0 and j!=0:
                     dp[i][j]= dp[i][j-1]+grid[i][j]
 
