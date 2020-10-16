@@ -10,7 +10,10 @@ class Solution:
             return True
         def heigh(root):
             if not root:
-                return  0
-
+                return 0
             return max(heigh(root.left),heigh(root.right))+1
-        return   self.isBalanced(root.left) and self.isBalanced(root.right) and abs(heigh(root.left)-heigh(root.right))<=1
+        return  self.isBalaced(root.left) and self.isBalaced(root.right) and abs(heigh(root.left)-heigh(root.right))<=1
+
+
+
+

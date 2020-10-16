@@ -10,5 +10,6 @@ class Solution:
             Sum+=num
             if Sum<0:
                 Sum=0
-            max_sum=max(Sum,max_sum)
+            max_sum=max(max_sum,Sum)
         return max_sum
+

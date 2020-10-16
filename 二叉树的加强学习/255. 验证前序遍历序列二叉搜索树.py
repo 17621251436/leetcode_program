@@ -6,8 +6,9 @@ class Solution(object):
         """
         if not preorder:
             return True
-        if preorder == sorted(preorder) or preorder == sorted(preorder)[::-1]:
+        if preorder==sorted(preorder) or preorder==sorted(preorder)[::-1]:
             return True
+
 
         # 从左往右找第一个比它大的数
         index = -1

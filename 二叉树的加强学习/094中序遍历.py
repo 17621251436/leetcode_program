@@ -20,18 +20,20 @@ class Solution:
 
         ###不遍历的写法
 
-        res=[]
+
+
+        res = []
         if not root:
             return []
-        stack,res,cur=[],[],root
+        stack, res, cur = [], [], root
         while cur or stack:
             while cur:
                 stack.append(cur)
-                cur=cur.left
+                cur = cur.left
 
-            tmp=stack.pop()
+            tmp = stack.pop()
             res.append(tmp.val)
-            cur=tmp.right
+            cur = tmp.right
         return res
 
 

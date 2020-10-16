@@ -6,18 +6,21 @@ class Solution:
 
         n = len(height)
 
-        left, right = 0, n - 1  # 分别位于输入数组的两端
-        maxleft, maxright = height[0], height[n - 1]
-        ans = 0
-
-        while left <= right:
-            maxleft = max(height[left], maxleft)
-            maxright = max(height[right], maxright)
-            if maxleft < maxright:
-                ans += maxleft - height[left]
-                left += 1
+        left,right=0,n-1
+        maxleft,maxright=height[0],height[n-1]
+        ans=0
+        while left<=right:
+            maxleft=max(maxleft,height[left])
+            maxright=max(maxright,height[right])
+            if maxleft<maxright:
+                ans+=maxleft-height[left]
+                left+=1
             else:
-                ans += maxright - height[right]
-                right -= 1
+                ans+=maxright-height[right]
+                right-=1
+        return ans
 
-return ans
+
+
+
+

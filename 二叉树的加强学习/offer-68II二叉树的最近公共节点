@@ -14,3 +14,4 @@ class Solution:
         if not left: return right
         if not right: return left
         return root
+
