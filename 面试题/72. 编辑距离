@@ -1,6 +1,6 @@
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
-<<<<<<< HEAD
+
         m=len(word1)
         n=len(word2)
         if m*n==0:
