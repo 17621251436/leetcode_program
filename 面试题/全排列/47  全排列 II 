@@ -2,7 +2,7 @@ class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         if not nums:
-            return []
+            return [[]]
         check=[0 for _ in range(len(nums))]
         res=[]
         def dfs(nums,path,check):
@@ -18,6 +18,10 @@ class Solution:
                 check[i]=0
         dfs(nums,[],check)
         return res
+
+
+
+
 
     #
     # def backtree(nums, path, check):

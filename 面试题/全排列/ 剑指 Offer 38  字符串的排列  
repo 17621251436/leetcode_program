@@ -3,7 +3,6 @@ class Solution:
         if not s:
             return []
         s=list(sorted(s))
-        res=[]
         def dfs(s,path):
             if not s:
                 res.append(''.join(path))
@@ -12,8 +11,9 @@ class Solution:
                     continue
                 dfs(s[:i]+s[i+1:],path+[s[i]])
         dfs(s,[])
+        return res
 
-        return   res
+
 
 
 

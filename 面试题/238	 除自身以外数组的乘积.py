@@ -8,6 +8,6 @@ class Solution:
             tmp*=nums[j+1]
             b[j]*=tmp
 
-        rteurn b
+        return b
 
 

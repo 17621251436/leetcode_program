@@ -8,7 +8,7 @@
 class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
         if not root:
-            return []
+            return [[]]
         res=[]
         path=[]
         def dfs(root,tar):
@@ -16,8 +16,8 @@ class Solution:
                 return []
             path.append(root.val)
             tar-=root.val
-            if not root.left and not root.right and tar==0:
-                res.append(path)
+            if not root.left and not root.right:
+                res.append(root.val)
             dfs(root.left,tar)
             dfs(root.right,tar)
             path.pop()
