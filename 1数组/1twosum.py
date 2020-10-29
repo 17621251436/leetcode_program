@@ -4,15 +4,20 @@
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        tmp=[]
-        if len(nums)==0:
-            return []
-        for i in  range(len(nums)-1):
-            for j in range(i+1,len(nums)):
-                if nums[i]+nums[j]==target:
-                    tmp.append(i)
-                    tmp.append(j)
-                    break
+
+        nums.sort()
+        i=0
+        j=len(nums)-1
+        while i<=j:
+            tmp=[]
+            if nums[i]+nums[j]==target:
+                tmp.append(nums[i])
+                tmp.append(nums[j])
+                break
+            elif nums[i]+nums[j]>target:
+                j-=1
+            else:
+                i+=1
         return tmp
 
 

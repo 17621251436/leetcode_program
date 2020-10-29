@@ -4,6 +4,21 @@
 
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+        left=0
+        nums.sort()
+        for i in range(len(nums)-2):
+            if i>0 and nums[i-1]==nums[i]:
+                continue
+            left=i+1
+            right=len(nums)-1
+            if nums[i]+nums[left]+nums[left+1]>0:
+                break
+            if nums[i]+nums[right]+nums[right+1]<0:
+                continue
+            while left<right:
+                a=[]
+
+
 
         # left=0
         # nums.sort()

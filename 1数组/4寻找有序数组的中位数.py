@@ -4,3 +4,10 @@
 
 #您可以假设除了数字 0 之外，这两个数都不会以 0 开头。
 
+
+
+n=len(num)
+if n%2==1:
+    return nums[(n-1)//2]
+else:
+    return (nums[(n)//2]+nums[(n-1)//2])//2

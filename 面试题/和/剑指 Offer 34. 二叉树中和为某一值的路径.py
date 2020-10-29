@@ -5,20 +5,6 @@ class Solution:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         # res=[]
         # path=[]
         # if not root:
